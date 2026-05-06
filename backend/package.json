@@ -1,0 +1,16 @@
+{
+  "name": "backend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build:frontend": "npm run build --prefix ../frontend",
+    "start": "npm run build:frontend && node app.js",
+    "dev": "npm run build:frontend && node --watch app.js",
+    "serve": "node app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
