@@ -1,4 +1,5 @@
 import { apiClient } from './client.js'
+import { getGridStatus, getRecommendations } from '../api.js'
 
 export async function fetchHealth() {
   const { data } = await apiClient.get('/health')
@@ -11,8 +12,7 @@ export async function fetchMetrics() {
 }
 
 export async function fetchGridStatus() {
-  const { data } = await apiClient.get('/grid-status')
-  return data
+  return getGridStatus()
 }
 
 export async function fetchDemand() {
@@ -26,8 +26,7 @@ export async function fetchBehavior() {
 }
 
 export async function fetchRecommendations() {
-  const { data } = await apiClient.get('/recommendations')
-  return data
+  return getRecommendations()
 }
 
 export async function postSimulate(growth) {
