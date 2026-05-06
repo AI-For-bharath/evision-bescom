@@ -4,9 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build:frontend": "npm run build --prefix ../frontend",
-    "start": "npm run build:frontend && node app.js",
-    "dev": "npm run build:frontend && node --watch app.js",
+    "start": "node app.js",
+    "dev": "node --watch app.js",
     "serve": "node app.js"
   },
   "dependencies": {
