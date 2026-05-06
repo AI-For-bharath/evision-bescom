@@ -16,9 +16,14 @@ const NAV = [
   { id: 'about', label: 'About', Icon: GlyphAbout },
 ]
 
-export default function Sidebar({ page, onPageChange }) {
+export default function Sidebar({ page, onPageChange, isOpen, onClose }) {
+  const handleNavigate = (id) => {
+    onPageChange(id)
+    onClose?.()
+  }
+
   return (
-    <aside className="sidebar" aria-label="Main navigation">
+    <aside className={`sidebar${isOpen ? ' sidebar--open' : ''}`} aria-label="Main navigation" id="sidebar-navigation">
       <div className="sidebar__brand">
         <div className="sidebar__mark" aria-hidden>
           <span className="sidebar__mark-inner">⚡</span>
@@ -34,7 +39,7 @@ export default function Sidebar({ page, onPageChange }) {
             key={id}
             type="button"
             className={`sidebar__link${page === id ? ' sidebar__link--active' : ''}`}
-            onClick={() => onPageChange(id)}
+            onClick={() => handleNavigate(id)}
           >
             <span className="sidebar__icon" aria-hidden>
               <Icon />
